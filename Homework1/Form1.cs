@@ -40,7 +40,7 @@ namespace Homework1
         {
             var filter = comboBox2.SelectedIndex;
             var sort = comboBox1.SelectedIndex;
-            var text = textBox1.Text == "¬ведите дл€ поиска" ? "" : textBox1.Text;
+            var text = textBox1.Text == "¬ведите дл€ поиска" ? "" : textBox1.Text.ToLower();
             
             List<Product> list = new();
 

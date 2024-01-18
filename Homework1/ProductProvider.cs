@@ -49,7 +49,7 @@ namespace Homework1
 
         public List<Product> GetProductsWithText(string text)
         {
-            string commandText = $"SELECT * FROM {TABLE_NAME} WHERE name LIKE '%{text}%'";
+            string commandText = $"SELECT * FROM {TABLE_NAME} WHERE lower(name) LIKE '%{text}%'";
             NpgsqlCommand cmd = new NpgsqlCommand(commandText, connection);
             var dataReader = cmd.ExecuteReader();
             DataTable dt = new();
@@ -71,7 +71,7 @@ namespace Homework1
 
         public List<Product> GetProductsAsc(string text)
         {
-            string commandText = $"SELECT * FROM {TABLE_NAME} WHERE name LIKE '%{text}%' ORDER BY name";
+            string commandText = $"SELECT * FROM {TABLE_NAME} WHERE lower(name) LIKE '%{text}%' ORDER BY name";
             NpgsqlCommand cmd = new NpgsqlCommand(commandText, connection);
             var dataReader = cmd.ExecuteReader();
             DataTable dt = new();
@@ -81,7 +81,7 @@ namespace Homework1
 
         public List<Product> GetProductsDesc(string text)
         {
-            string commandText = $"SELECT * FROM {TABLE_NAME} WHERE name LIKE '%{text}%' ORDER BY name DESC";
+            string commandText = $"SELECT * FROM {TABLE_NAME} WHERE lower(name) LIKE '%{text}%' ORDER BY name DESC";
             NpgsqlCommand cmd = new NpgsqlCommand(commandText, connection);
             var dataReader = cmd.ExecuteReader();
             DataTable dt = new();
